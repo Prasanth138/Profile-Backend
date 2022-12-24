@@ -26,6 +26,10 @@ app.use("/api/password-reset", passwordResetRoutes);
 
 
 
+app.get('/', function (req, res) {
+    res.send(`Welcome to Profile Editor`);
+  })
+
 
 //port
 const PORT=process.env.PORT || 3000;
