@@ -12,4 +12,8 @@ module.exports = () => {
         console.log(error);
         console.log("Could not connect to database...")
     }
+    mongoose.connection.on("disconnected", () => {
+        console.log("mongoDB disconnected!");
+      });
+    
 }
