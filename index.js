@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const connection = require("./db");
 const mongoose = require('mongoose');
 const userRoutes = require("./routes/users");
@@ -14,8 +15,9 @@ const passwordResetRoutes = require("./routes/passwordReset");
 connection();
 
 // middlewares
-app.use(express.json());
 app.use(cors({origin: '*'}));
+app.use(express.json());
+app.use(cookieParser());
 
 // routes
 app.use("/api/users", userRoutes);
